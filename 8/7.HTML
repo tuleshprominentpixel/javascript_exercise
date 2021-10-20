@@ -1,0 +1,78 @@
+<HTML>
+    <head>
+        <title></title>
+       <!-- <script src="3.js" async>
+            
+        </script>-->
+    </head>
+    <body onload="">
+        
+       <h1>
+        div
+       </h1>
+        <div id="" class="">
+            <p id="demo">
+                
+            </p>
+        </div>  
+        
+    </body>
+    <script>
+        var inputvar=prompt('Enter Element ');
+        var inputArray = [];
+        var size = inputvar; //Maximum Array size
+        var count=0;
+        for(var i=0; i<size; i++) {
+            a=prompt('Enter Element ' + (i+1));
+            for(var j=0;j<size;j++)
+            {
+                if(a==inputArray[j])
+                {
+                    count++;
+                }
+            }
+            if(count==0)
+            {
+                inputArray[i] = a;
+                count=0;
+            }
+            //Taking Input from user
+            //inputArray[i] = a;
+        }
+        /*let arrayLike = {
+        0: "hii",
+        1: "TULESH",
+        
+        length: 2
+        };*/
+        //Print the array in the console.
+        console.log(inputArray);
+        /*console.log("greter than 5");
+        for(i=0; i<size; i++)
+        {
+            if(inputArray[i]>5)
+            {
+                console.log(inputArray[i]);
+            }
+        }*/
+
+        //let numbers = [1, 2, 3];
+
+        /*let sum = 0;
+        for (let i = 0; i < inputArray.length; i++) {
+            sum += inputArray[i];
+        }
+        console.log(sum);*/
+        /*let arr = [1, 2];
+
+        let arrayLike = {
+        0: "hii",
+        1: "TULESH",
+        
+        length: 2
+        };
+        document.getElementById("demo").innerHTML=arr ;
+        console.log(arrayLike); */
+    </script>
+    
+</HTML>
