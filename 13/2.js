@@ -1,4 +1,14 @@
 var p1=document.getElementById("gt");
+var parenele=document.getElementById("gt").parentElement;
+
+var dist;
+
+var a1=p1.offsetTop;
+
+dist=a1;
+
+console.log(parenele.offsetTop);
+
 var a1=p1.offsetTop;
 console.log(a1);
 p1.scrollTo(0,50);
