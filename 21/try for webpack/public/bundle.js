@@ -1,0 +1,1 @@
+globalThis.DEFAULT_VALUE="MAX",class{static init(){const t=new ProjectList("active"),i=new ProjectList("finished");t.setSwitchHandlerFunction(i.addProject.bind(i)),i.setSwitchHandlerFunction(t.addProject.bind(t))}static startAnalytics(){const t=document.createElement("script");t.src="assets/scripts/Utility/Analytics.js",t.defer=!0,document.head.append(t)}}.init();
