@@ -19,8 +19,7 @@ var inCashDrawer=[];
 
 
 var arr1=[['PENNY', 0], ['NICKEL', 0], ['DIME', 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]];
-var arr2=[['PENNY', 0.01], ['NICKEL', 0.05], ['DIME', 0.1], ["QUARTER", 0.25], ["ONE", 1], ["FIVE", 5.0], ["TEN", 10], ["TWENTY", 20], ["ONE HUNDRED", 100],["FIVE HUNDRED", 500]];
-// var arr1=arr2;
+var arr2=[['PENNY', 0.01], ['NICKEL', 0.05], ['DIME', 0.1], ["QUARTER", 0.25], ["ONE", 1], ["FIVE", 5.0], ["TEN", 10], ["TWENTY", 20], ["ONE HUNDRED", 100]];
 var a1,a2,a3,b1;
 /*sub=(givenMoney-price);
 money=sub;*/
@@ -31,7 +30,7 @@ function giveMeSomeChange()
     givenMoney=arguments[1];
     sub=(givenMoney-price);
     money=sub;
-    // console.log(typeof arguments[2]);
+    console.log(typeof arguments[2]);
     console.log(arguments);
     // console.log(arr);
     for(let value of Object.values(arguments[2])) {
@@ -43,11 +42,13 @@ function giveMeSomeChange()
         sum+=value1[1];
     }
     console.log(sum);
-    for(var i=0;i<arguments[2].length;i++) {
-        //arr1[i][1]=parseFloat(arr[i][1].toFixed(2));
-        //console.log(arr1[i][1]);
+    for(var i=0;i<arguments[2].length;i++)
+    {
+        arr1[i][1]=arr[i][1];
+        //console.log(arr[i][1]);
     }
-    for(i=0;i<arr1.length;i++){
+    for(i=0;i<arr1.length;i++)
+    {
         
         console.log(arr1[i]);
     }
@@ -58,35 +59,30 @@ function giveMeSomeChange()
         //alert(diff);
         //for(;money>price;)
         { 
-            for(i=(arr2.length-1);i>=0;i--)
+            for(i=(arr1.length-1);i>=0;i--)
             {
-                if((parseFloat((money).toFixed(2)))>=(parseFloat((arr2[i][1]))))
+                if((parseFloat(money))>parseFloat((arr2[i][1])))
                 {
                     mul=(money%arr[i][1])
                     notes=Math.floor(money/arr2[i][1]);
                     console.log((notes));
-                    if(((notes*arr2[i][1]))>(arr[i][1]))
+                    if((notes*arr2[i][1])>arr[i][1])
                     {
-                        a1=(arr[i][1].toFixed(2));
-                        a2=(Math.round(arr[i][1]/arr2[i][1]).toFixed(2));
+                        a1=arr[i][1];
+                        a2=Math.round(arr[i][1]/arr2[i][1]);
                         //a2=money-arr2[i][1];
                         /*console.log(a2);*/
                         notes=a2;
                         //notes=5;
                     }
-                    money-=(((notes*arr2[i][1])).toFixed(2));
-                    money = parseFloat(money.toFixed(2));
+                    money-=((notes*arr2[i][1]));
                     // console.log(money);
                     //alert(sub);
                     // text+='"'+arr2[i][0]+'"'+" * "+notes+" =  "+(notes*arr2[i][1])+"";
                     text+='["'+arr2[i][0]+'",'+(notes*arr2[i][1])+"]";
-                    if(((notes*arr2[i][1]))!=0)
-                    {
-                        
-                        result.push([arr2[i][0],(notes*arr2[i][1]).toFixed(2),notes]);
-                    }
-                    console.log(money);
-                    // b1=money;
+
+                    result.push([arr2[i][0],(notes*arr2[i][1])]);
+                    b1=money;
                     
                     // result[arr2[i][0]]=(notes*arr2[i][1]);
                     
@@ -118,8 +114,8 @@ function giveMeSomeChange()
         }
     }
     text+=']';
-    console.log(sum.toFixed(2));
-    if(money>0.01)
+    console.log(sum);
+    if(money>0)
     {
         /*console.log(money);
         console.log('INSUFFICIENT_FUNDS or CLOSED or OPEN');*/
@@ -129,8 +125,7 @@ function giveMeSomeChange()
     {
         return  { status: 'CLOSED', change: result};
     }
-    // if(money)
-    else
+    if(money==0)
     {
         return  { status: 'OPEN', change: result};
     }
@@ -142,6 +137,8 @@ function giveMeSomeChange()
 }
 //giveMeSomeChange(1,23,)
 
+const a=giveMeSomeChange(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
 
-
-console.log(giveMeSomeChange(5.4, 1500, [["PENNY", 100.01], ["NICKEL", 200.05], ["DIME", 300.1], ["QUARTER", 404.25], ["ONE", 100], ["FIVE", 5000], ["TEN", 1000], ["TWENTY", 100], ["ONE HUNDRED", 0],["FIVE HUNDRED", 1000]]));
+console.log(a);
+/*
+(100, 200, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1000], ["FIVE", 0], ["TEN", 10], ["TWENTY", 0], ["ONE HUNDRED", 0]]);*/
